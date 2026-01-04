@@ -186,6 +186,11 @@
             .enhanced-header .space-x-reverse {
                 margin-left: 0.5rem;
             }
+            
+            .profile-modal {
+                margin: 1rem;
+                max-width: calc(100vw - 2rem);
+            }
         }
         
         @media (max-width: 640px) {
@@ -226,6 +231,11 @@
             .enhanced-header .space-x-reverse {
                 margin-left: 0.25rem;
             }
+            
+            .profile-modal {
+                margin: 0.5rem;
+                max-width: calc(100vw - 1rem);
+            }
         }
         
         @media (max-width: 480px) {
@@ -261,6 +271,11 @@
             
             .enhanced-header .space-x-reverse {
                 margin-left: 0.125rem;
+            }
+            
+            .profile-modal {
+                margin: 1rem;
+                max-width: calc(100vw - 2rem);
             }
         }
         
@@ -747,22 +762,9 @@
                 </a>
             </div>
             
-            <!-- Secondary Section -->
+            <!-- Profile Settings Section -->
             <div class="mb-6">
                 <h4 class="text-xs font-semibold text-indigo-600 uppercase tracking-wider mb-3 px-3 bg-indigo-50 py-2 rounded-lg border border-indigo-200">إعدادات وحساب</h4>
-                
-                <a href="#" class="group flex items-center px-3 py-2.5 rounded-xl bg-gradient-to-r from-gray-500 to-gray-600 text-white hover:from-gray-600 hover:to-gray-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
-                    <div class="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center ml-3">
-                        <svg class="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        </svg>
-                    </div>
-                    <div class="flex-1">
-                        <div class="font-bold text-white">الإعدادات</div>
-                        <div class="text-xs text-gray-100">تخصيص التطبيق</div>
-                    </div>
-                </a>
                 
                 <a href="#" onclick="showProfileSettings()" class="group flex items-center px-3 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-indigo-600 text-white hover:from-indigo-600 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
                     <div class="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center ml-3">
@@ -1463,7 +1465,7 @@
 
         <!-- Profile Modal -->
         <div id="profileModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-            <div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4 animate-fade-in-up">
+            <div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4 animate-fade-in-up profile-modal">
                 <div class="p-6">
                     <div class="flex justify-between items-center mb-6">
                         <h2 class="text-xl font-bold text-gray-900">الملف الشخصي</h2>
