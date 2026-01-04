@@ -374,10 +374,12 @@
             .sidebar {
                 width: 260px;
                 right: -260px;
+                display: none;
             }
             
             .sidebar.active {
                 right: 0;
+                display: block;
             }
             
             .sidebar a {
@@ -399,10 +401,12 @@
             .sidebar {
                 width: 240px;
                 right: -240px;
+                display: none;
             }
             
             .sidebar.active {
                 right: 0;
+                display: block;
             }
             
             .sidebar a {
@@ -1761,19 +1765,16 @@
                 sidebar.classList.toggle('active');
                 overlay.classList.toggle('active');
                 
-                // Force display update for mobile
+                // Prevent body scroll when sidebar is open
                 if (sidebar.classList.contains('active')) {
-                    sidebar.style.display = 'block';
                     document.body.style.overflow = 'hidden';
                 } else {
-                    sidebar.style.display = 'none';
                     document.body.style.overflow = '';
                 }
             } else {
                 sidebar.classList.toggle('collapsed');
                 mainContent.classList.toggle('expanded');
-                // Reset mobile styles for desktop
-                sidebar.style.display = '';
+                // Reset body overflow for desktop
                 document.body.style.overflow = '';
             }
         }
@@ -1786,16 +1787,15 @@
             if (window.innerWidth >= 768) {
                 sidebar.classList.remove('active');
                 overlay.classList.remove('active');
-                // Reset mobile styles for desktop
-                sidebar.style.display = '';
                 document.body.style.overflow = '';
-            } else {
-                // Ensure mobile styles are applied
-                if (!sidebar.classList.contains('active')) {
-                    sidebar.style.display = 'none';
-                }
             }
         });
+
+        // Initialize mobile sidebar state
+        if (window.innerWidth < 768) {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.remove('active');
+        }
 
         function toggleDarkMode() {
             document.body.classList.toggle('dark');
