@@ -168,14 +168,6 @@
                 display: none;
             }
             
-            .sidebar {
-                display: none;
-            }
-            
-            .sidebar.active {
-                display: block;
-            }
-            
             .grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3 {
                 grid-template-columns: 1fr;
             }
@@ -214,14 +206,6 @@
             
             .desktop-menu-btn {
                 display: none;
-            }
-            
-            .sidebar {
-                display: none;
-            }
-            
-            .sidebar.active {
-                display: block;
             }
             
             .enhanced-header {
@@ -315,14 +299,6 @@
                 display: none;
             }
             
-            .sidebar {
-                display: none;
-            }
-            
-            .sidebar.active {
-                display: block;
-            }
-            
             .enhanced-header .space-x-reverse {
                 margin-left: 0.125rem;
             }
@@ -366,11 +342,13 @@
                 width: 280px;
                 right: -280px;
                 transform: translateX(0);
+                display: none;
             }
             
             .sidebar.active {
                 right: 0;
                 transform: translateX(0);
+                display: block;
             }
             
             .sidebar a {
@@ -1782,9 +1760,21 @@
             if (window.innerWidth < 768) {
                 sidebar.classList.toggle('active');
                 overlay.classList.toggle('active');
+                
+                // Force display update for mobile
+                if (sidebar.classList.contains('active')) {
+                    sidebar.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    sidebar.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
             } else {
                 sidebar.classList.toggle('collapsed');
                 mainContent.classList.toggle('expanded');
+                // Reset mobile styles for desktop
+                sidebar.style.display = '';
+                document.body.style.overflow = '';
             }
         }
 
@@ -1796,6 +1786,14 @@
             if (window.innerWidth >= 768) {
                 sidebar.classList.remove('active');
                 overlay.classList.remove('active');
+                // Reset mobile styles for desktop
+                sidebar.style.display = '';
+                document.body.style.overflow = '';
+            } else {
+                // Ensure mobile styles are applied
+                if (!sidebar.classList.contains('active')) {
+                    sidebar.style.display = 'none';
+                }
             }
         });
 
