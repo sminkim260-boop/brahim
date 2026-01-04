@@ -1207,7 +1207,7 @@
         <!-- Quiz Tab -->
         <section id="tab-quiz" class="tab-content hidden">
             <!-- Quiz Section -->
-            <div id="quiz-intro" class="max-w-3xl mx-auto text-center space-y-6 md:space-y-8 p-8 md:p-12 glass-effect rounded-[2.5rem] md:rounded-[3.5rem] border-b-8 border-amber-500 shadow-2xl mb-8">
+            <div id="quiz-intro" class="max-w-3xl mx-auto text-center space-y-6 md:space-y-8 p-4 sm:p-6 md:p-8 lg:p-12 glass-effect rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[2.5rem] lg:rounded-[3.5rem] border-b-4 sm:border-b-6 md:border-b-8 border-amber-500 shadow-2xl mb-8">
                 <div class="relative w-16 h-16 md:w-24 md:h-24 mx-auto">
     <div class="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-500 rounded-2xl md:rounded-3xl animate-pulse opacity-30"></div>
     <div class="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-600 rounded-2xl md:rounded-3xl animate-ping opacity-20"></div>
@@ -1218,8 +1218,8 @@
         <div class="absolute inset-0 rounded-2xl md:rounded-3xl bg-gradient-to-tr from-transparent via-amber-500/20 to-transparent animate-shimmer"></div>
     </div>
 </div>
-                <h3 class="text-2xl md:text-4xl font-black quran-text text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 animate-pulse">سباق العلم والمعرفة</h3>
-                <p class="text-lg md:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 animate-pulse">اختبر معلوماتك في تحدٍ زمني ممتع!</p>
+                <h3 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black quran-text text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 animate-pulse">سباق العلم والمعرفة</h3>
+                <p class="text-base sm:text-lg md:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 animate-pulse">اختبر معلوماتك في تحدٍ زمني ممتع!</p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
                     <div class="bg-amber-50 p-4 rounded-xl border-2 border-amber-200">
                         <div class="text-2xl md:text-3xl font-black text-amber-600">5</div>
@@ -1235,52 +1235,51 @@
                         <div class="text-sm text-gray-600">نقطة للإجابة الصحيحة</div>
                     </div>
                 </div>
-                <button onclick="startQuiz()" class="px-8 py-4 bg-amber-500 text-white rounded-xl font-black hover:bg-amber-600 transition-all transform hover:scale-105 shadow-lg">
-                    ابدأ التحدي
-                </button>
+                <button onclick="startQuiz()" class="px-6 sm:px-8 py-3 sm:py-4 bg-amber-500 text-white rounded-xl font-black hover:bg-amber-600 transition-all transform hover:scale-105 shadow-lg text-base sm:text-lg">ابدأ التحدي</button>
             </div>
             <div id="quiz-container" class="hidden">
                 <!-- Quiz Question Display -->
-                <div class="max-w-4xl mx-auto">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6">
                     <!-- Question Header -->
-                    <div class="bg-white rounded-2xl shadow-xl p-6 mb-6 border-2 border-amber-200">
-                        <div class="flex justify-between items-center mb-4">
-                            <div class="flex items-center gap-4">
-                                <span class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm font-bold" id="q-category">دينية</span>
-                                <span class="text-gray-500 text-sm">السؤال رقم</span>
-                                <span class="text-amber-600 font-bold text-lg" id="current-q-num">1</span>
-                                <span class="text-gray-500 text-sm">من 50</span>
+                    <div class="bg-white rounded-2xl shadow-xl p-4 sm:p-6 mb-6 border-2 border-amber-200">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
+                            <div class="flex flex-wrap items-center gap-2 sm:gap-4">
+                                <span class="px-2 sm:px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-xs sm:text-sm font-bold" id="q-category">دينية</span>
+                                <span class="text-gray-500 text-xs sm:text-sm">السؤال رقم</span>
+                                <span class="text-amber-600 font-bold text-lg sm:text-xl" id="current-q-num">1</span>
+                                <span class="text-gray-500 text-xs sm:text-sm">من 50</span>
                             </div>
-                            <div class="flex items-center gap-4">
+                            <div class="flex flex-wrap items-center gap-2 sm:gap-4">
                                 <div class="flex items-center gap-2">
-                                    <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg class="w-4 h-4 sm:w-5 sm:h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                     </svg>
-                                    <span class="text-amber-600 font-bold text-xl" id="timer-display">5:00</span>
+                                    <span class="text-amber-600 font-bold text-lg sm:text-xl" id="timer-display">5:00</span>
                                 </div>
                                 <div class="flex items-center gap-2">
-                                    <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg class="w-4 h-4 sm:w-5 sm:h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                     </svg>
-                                    <span class="text-emerald-600 font-bold text-xl" id="score-display">0</span>
+                                    <span class="text-emerald-600 font-bold text-lg sm:text-xl" id="score-display">0</span>
                                 </div>
-                                <button onclick="stopQuiz()" class="px-3 py-1.5 bg-red-500 text-white rounded-lg font-bold hover:bg-red-600 transition-all transform hover:scale-105 shadow-lg flex items-center gap-1 text-sm">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <button onclick="stopQuiz()" class="px-2 py-1.5 sm:px-3 bg-red-500 text-white rounded-lg font-bold hover:bg-red-600 transition-all transform hover:scale-105 shadow-lg flex items-center gap-1 text-xs sm:text-sm">
+                                    <svg class="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"></path>
                                     </svg>
-                                    توقيف التحدي
+                                    <span class="hidden sm:inline">توقيف التحدي</span>
+                                    <span class="sm:hidden">إيقاف</span>
                                 </button>
                             </div>
                         </div>
                         
                         <!-- Question Text -->
-                        <div class="text-center mb-8">
-                            <h3 class="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 mb-4 animate-pulse" id="question-text">جاري التحميل...</h3>
+                        <div class="text-center mb-6 sm:mb-8">
+                            <h3 class="text-xl sm:text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 mb-4 animate-pulse" id="question-text">جاري التحميل...</h3>
                         </div>
                         
                         <!-- Options Grid -->
-                        <div id="options-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div id="options-grid" class="grid grid-cols-1 gap-3 sm:gap-4">
                             <!-- Options will be dynamically loaded here -->
                         </div>
                     </div>
