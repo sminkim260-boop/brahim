@@ -153,6 +153,7 @@
                 height: 100%;
                 background: rgba(0, 0, 0, 0.5);
                 z-index: 40;
+                backdrop-filter: blur(2px);
             }
             
             .mobile-menu-overlay.active {
@@ -160,11 +161,19 @@
             }
             
             .mobile-menu-btn {
-                display: block;
+                display: flex;
             }
             
             .desktop-menu-btn {
                 display: none;
+            }
+            
+            .sidebar {
+                display: none;
+            }
+            
+            .sidebar.active {
+                display: block;
             }
             
             .grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3 {
@@ -194,6 +203,35 @@
         }
         
         @media (max-width: 640px) {
+            .main-content {
+                margin-right: 0;
+                padding: 0.75rem;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .desktop-menu-btn {
+                display: none;
+            }
+            
+            .sidebar {
+                display: none;
+            }
+            
+            .sidebar.active {
+                display: block;
+            }
+            
+            .enhanced-header {
+                padding: 0 0.75rem;
+            }
+            
+            .enhanced-header .space-x-reverse {
+                margin-left: 0.25rem;
+            }
+            
             .text-2xl {
                 font-size: 1.5rem;
             }
@@ -269,6 +307,22 @@
                 padding: 0 0.25rem;
             }
             
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .desktop-menu-btn {
+                display: none;
+            }
+            
+            .sidebar {
+                display: none;
+            }
+            
+            .sidebar.active {
+                display: block;
+            }
+            
             .enhanced-header .space-x-reverse {
                 margin-left: 0.125rem;
             }
@@ -318,6 +372,24 @@
                 right: 0;
                 transform: translateX(0);
             }
+            
+            .sidebar a {
+                padding: 1.5rem 0.75rem;
+                border-radius: 0.75rem;
+            }
+            
+            .sidebar a .flex-1 {
+                min-width: 0;
+            }
+            
+            .sidebar a .w-8 {
+                width: 2rem;
+                height: 2rem;
+            }
+            
+            .sidebar a .ml-3 {
+                margin-left: 0.75rem;
+            }
         }
         
         @media (max-width: 640px) {
@@ -329,6 +401,20 @@
             .sidebar.active {
                 right: 0;
             }
+            
+            .sidebar a {
+                padding: 1.25rem 0.5rem;
+                border-radius: 0.625rem;
+            }
+            
+            .sidebar a .w-8 {
+                width: 1.75rem;
+                height: 1.75rem;
+            }
+            
+            .sidebar a .ml-3 {
+                margin-left: 0.5rem;
+            }
         }
         
         @media (max-width: 480px) {
@@ -339,6 +425,29 @@
             
             .sidebar.active {
                 right: 0;
+            }
+            
+            .sidebar a {
+                padding: 1rem 0.5rem;
+                border-radius: 0.5rem;
+                min-height: 3.5rem;
+            }
+            
+            .sidebar a .w-8 {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+            
+            .sidebar a .ml-3 {
+                margin-left: 0.5rem;
+            }
+            
+            .sidebar a .text-xs {
+                font-size: 0.625rem;
+            }
+            
+            .sidebar a .font-bold {
+                font-size: 0.875rem;
             }
         }
         
@@ -672,14 +781,47 @@
             font-weight: 500;
         }
         
+        /* Desktop Menu Button */
+        .desktop-menu-btn {
+            display: flex;
+        }
+        
+        @media (max-width: 768px) {
+            .desktop-menu-btn {
+                display: none;
+            }
+        }
+        
         /* Mobile Menu Button */
         .mobile-menu-btn {
             display: none;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            min-width: 2.75rem;
+            min-height: 2.75rem;
+            justify-content: center;
+            align-items: center;
         }
         
         @media (max-width: 768px) {
             .mobile-menu-btn {
-                display: block;
+                display: flex;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .mobile-menu-btn {
+                padding: 0.5rem;
+                min-width: 2.5rem;
+                min-height: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .mobile-menu-btn {
+                padding: 0.375rem;
+                min-width: 2.25rem;
+                min-height: 2.25rem;
             }
         }
     </style>
@@ -750,8 +892,6 @@
         <nav class="mt-6 px-3">
             <!-- Main Section -->
             <div class="mb-6">
-                <h4 class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-3 px-3 bg-emerald-50 py-2 rounded-lg border border-emerald-200">القسم الرئيسي</h4>
-                
                 <a href="#" onclick="switchTab('home')" class="group flex items-center px-3 py-2.5 rounded-xl bg-emerald-50 text-emerald-700 hover:bg-emerald-100 transition-all duration-200 shadow-sm">
                     <div class="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center ml-3">
                         <svg class="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -763,7 +903,7 @@
                         <div class="text-xs text-emerald-600">الصفحة الرئيسية</div>
                     </div>
                 </a>
-            <a href="#" onclick="switchTab('lessons')" class="group flex items-center px-3 py-2.5 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                <a href="#" onclick="switchTab('lessons')" class="group flex items-center px-3 py-2.5 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
                     <div class="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center ml-3">
                         <svg class="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
@@ -778,10 +918,11 @@
                     <div class="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center ml-3">
                         <svg class="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                    </svg>
+                        </svg>
                     </div>
                     <div class="flex-1">
                         <div class="font-bold text-white">الدروس المباشرة</div>
+                        <div class="text-xs text-red-100">جلسات مباشرة</div>
                     </div>
                     <span class="bg-white text-red-600 text-xs px-2 py-1 rounded-full font-bold animate-pulse">مباشر</span>
                 </a>
